@@ -131,8 +131,16 @@ body{
     transition: background-color 500ms, font-size 500ms;
 }
 
-.overlay > fieldset {
-    font-size: 70px;
+
+fieldset > #scores-tab , #scoreInPage{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+fieldset > legend {
+    font-size: 40px;
 }
 
 .overlay-sm{
@@ -154,6 +162,10 @@ body{
         background-color: rgba(0,0,0, .8);
         font-size: 10em;
     }
+}
+
+.game-over, .victory {
+    font-size: 15px;
 }
 
 .xmas{

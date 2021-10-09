@@ -25,6 +25,7 @@ class matchingCard {
             const valeur = localStorage.getItem(key);
 
             scoresTab.innerHTML += `<ul><li>${key}: ${valeur}</li></ul>`;
+
         }
     }
     
@@ -110,16 +111,6 @@ class matchingCard {
         this.hideCards();
     }
     
-    // showScore(){
-    //     const scoresTab = document.getElementById('scores-tab');
-
-    //     for( let i = 0; i < localStorage.length ; i++ ){
-    //         const key = localStorage.key(i);
-    //         const valeur = localStorage.getItem(key);
-
-    //         scoresTab.innerHTML += `<ul><li>${key}: ${valeur}</li></ul>`;
-    //     }
-    // }
 
     shuffleCards(){
         // Fisher and Yates Shuffle

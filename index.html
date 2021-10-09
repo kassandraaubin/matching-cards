@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js" async></script>
-    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" async></script>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
     <h1 class="title">Matching cards</h1>
@@ -15,7 +15,7 @@
     </div>
 
     <div id="game-over" class="overlay">
-        Game Over !
+        Game Over
         <span class="overlay-sm">Try again</span>
     </div>
 
@@ -25,11 +25,11 @@
             <legend>Previous Scores</legend>
             <div id="scores-tab"></div>
         </fieldset>
-        <span class="overlay-sm">Try again</span>
+        <span class="overlay-sm">Play again</span>
     </div>
 
     <div class="container">
-        <div class="scores-tab"></div>
+        <div id="scoresInPage"></div>
         <div class="container-info">
             <fieldset class="info">
                 Name :<input type="text" id="name">

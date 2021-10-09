@@ -1,0 +1,199 @@
+@font-face {
+    font-family: 'Candcu__';
+    src: url('../assets/candy_cane/Candcu__.eot'); /* IE9 Compat Modes */
+    src: url('../assets/candy_cane/Candcu__.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../assets/candy_cane/Candcu__.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/candy_cane/Candcu__.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../assets/candy_cane/Candcu__.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('../assets/candy_cane/Candcu__.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+* {
+box-sizing: border-box;
+}
+
+html {
+min-height: 100vh;
+cursor: url("/assets/cursor.cur"), auto;
+}
+
+body {
+margin: 0;
+background-color: #d31f44;
+}
+
+.title {
+color: #fff;
+font-family: 'Candcu__', serif;
+font-weight: normal;
+text-align: center;
+font-size: 4em;
+}
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+    
+    .container-info {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+      
+      .info {
+        font-family: "Candcu__", serif;
+        color: #fff;
+        font-size: 2em;
+      }
+      
+    }
+    
+    .card {
+      position: relative;
+      height: 200px;
+      width: 150px;
+      
+      &:hover {
+      cursor: url("./assets/santa.cur"), auto;
+      }
+      .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        border-width: 1px;
+        border-style: solid;
+        transition: transform 500ms ease-in-out;
+      }
+  
+      .card-front {
+        background-color: green;
+        border-color: #fff;
+        transform: rotateY(180deg);
+
+        &:hover .card-value {
+            transform: scale(1);
+        }
+      }
+  
+      .card-back {
+        background-color: green;
+        border-color: red;
+      }
+  
+      &.visible .card-back {
+        transform: rotateY(-180deg);
+      }
+  
+      &.visible .card-front {
+        transform: rotateY(0);
+      }
+  
+      .card-value {
+        transition: transform 100ms ease-in-out;
+        transform: scale(0.5);
+      }
+    
+      &.matched .card-front .card-value {
+        animation: move 1s linear infinite 500ms;
+      }
+  
+      @keyframes move {
+        0%,
+        100% {
+          transform: rotate(0);
+        }
+        25% {
+          transform: rotate(-30deg);
+        }
+        75% {
+          transform: rotate(30deg);
+        }
+      }
+    }
+    div > #game-over,
+    #victory {
+        font-size: 10px !important;
+    }
+    
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #fff;
+    font-family: "Candcu__", serif;
+    flex-direction: column;
+    transition: background-color 500ms, font-size 500ms;
+    
+    .overlay-sm {
+    font-size: 0.3em;
+    }
+  
+    &.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-anim 500ms forwards;
+    }
+  
+    @keyframes overlay-anim {
+      from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+      }
+      to {
+        background-color: rgba(0, 0, 0, 0.8);
+        font-size: 10em;
+      }
+    }
+    
+  }
+  fieldset {
+    #scores-tab {
+      display: flex;
+      flex-direction: row;
+      font-size: 16px;
+      font-family: "Courier New", Courier, monospace;
+    }
+    
+    legend {
+    font-size: 40px;
+    }
+  }
+  
+  
+  
+  .xmas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      grid-template-columns: repeat(2, auto);
+    }
+    .container-info {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

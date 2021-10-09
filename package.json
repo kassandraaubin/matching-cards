@@ -4,7 +4,8 @@
   "description": "A card game made with html css and javascript",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "node-sass -w scss/ -o css/ --recursive",
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/kassandraaubin/matching-cards/issues"
   },
-  "homepage": "https://github.com/kassandraaubin/matching-cards#readme"
+  "homepage": "https://github.com/kassandraaubin/matching-cards#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
 }
