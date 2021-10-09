@@ -21,19 +21,20 @@
 
     <div id="victory" class="overlay">
         You did it !
-        <span id="score"></span>
+        <fieldset>
+            <legend>Previous Scores</legend>
+            <div id="scores-tab"></div>
+        </fieldset>
         <span class="overlay-sm">Try again</span>
     </div>
 
     <div class="container">
+        <div class="scores-tab"></div>
         <div class="container-info">
-            <div class="info">
-                Name :<input type="text" name="name" id="name">
+            <fieldset class="info">
+                Name :<input type="text" id="name">
                 Time : <span id="time-remaining">120</span>
-            </div>
-            <div class="scores">
-
-            </div>
+            </fieldset>
         </div>
 
         <div class="card">
@@ -143,9 +144,8 @@
                 <img class="xmas card-value" src="./assets/candycane.png" alt="">
             </div>
         </div>
-        
-        
         
     </div>
+    
 </body>
 </html>

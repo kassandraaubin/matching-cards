@@ -5,14 +5,12 @@ class matchingCard {
         this.totalTime = totalTime;
         this.timeRemaining = totalTime;
         this.timer = document.getElementById('time-remaining');
-        this.name = document.getElementById('name').value;
     }
     startGame() {
         this.cardToCheck = null;
         this.timeRemaining = this.totalTime;
         this.matchedCards = [];
         this.busy = true;
-        
         setTimeout(() => {
             this.shuffleCards();
             this.countDown = this.startCountingDown();
@@ -20,6 +18,14 @@ class matchingCard {
         }, 500);// Attendre 500 ms avant de run le code présent dans la fonction
         this.hideCards();
         this.timer.innerText = this.timeRemaining;
+        const scoresTab = document.getElementById('scores-tab');
+
+        for( let i = 0; i < localStorage.length ; i++ ){
+            const key = localStorage.key(i);
+            const valeur = localStorage.getItem(key);
+
+            scoresTab.innerHTML += `<ul><li>${key}: ${valeur}</li></ul>`;
+        }
     }
     
     hideCards(){
@@ -32,7 +38,6 @@ class matchingCard {
     flipCard(card){
         if(this.canFlipCard(card)){
             card.classList.add('visible');
-
             if(this.cardToCheck){
                 // check for match
                 this.checkForCardMatch(card);
@@ -94,10 +99,28 @@ class matchingCard {
     victory(){
         clearInterval(this.countDown);
         document.getElementById('victory').classList.add('visible');
-        localStorage.setItem(this.name, this.timeRemaining + ' seconds left');
+
+        const name = document.getElementById('name').value;
+        const time = this.timeRemaining + ' seconds left';
+    
+        if(name && time){
+            localStorage.setItem(name, time);
+        }
+
         this.hideCards();
     }
     
+    // showScore(){
+    //     const scoresTab = document.getElementById('scores-tab');
+
+    //     for( let i = 0; i < localStorage.length ; i++ ){
+    //         const key = localStorage.key(i);
+    //         const valeur = localStorage.getItem(key);
+
+    //         scoresTab.innerHTML += `<ul><li>${key}: ${valeur}</li></ul>`;
+    //     }
+    // }
+
     shuffleCards(){
         // Fisher and Yates Shuffle
         for(let i = this.cardsArray.length - 1 ; i > 0 ; i--){
@@ -111,6 +134,7 @@ class matchingCard {
         return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
     }
 }
+
 
 
 function ready(){
@@ -130,6 +154,7 @@ function ready(){
             game.flipCard(card);
         })
     })
+    
 }
 
 
@@ -138,4 +163,3 @@ if (document.readyState == 'loading'){
 } else {
     ready();
 }
-

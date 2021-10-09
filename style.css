@@ -68,7 +68,7 @@ body{
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
-    transform: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
 }
 
 .card-front {
@@ -129,6 +129,10 @@ body{
     font-family: Candy, serif;
     flex-direction: column;
     transition: background-color 500ms, font-size 500ms;
+}
+
+.overlay > fieldset {
+    font-size: 70px;
 }
 
 .overlay-sm{
