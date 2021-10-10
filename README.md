@@ -1,6 +1,6 @@
 # matching-cards
 
-## A Memory Game using HTML SCSS JS (with localStorage API)
+### A Memory Game using HTML SCSS JS (with localStorage API)
 
 <img width="1440" alt="startgame" src="https://user-images.githubusercontent.com/56520362/136674293-d9775ba7-7238-4094-b0e3-c0616324cbdd.png">
 
