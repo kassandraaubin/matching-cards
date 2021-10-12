@@ -61,8 +61,6 @@ body {
       background-color: green;
       border-color: #fff;
       transform: rotateY(180deg); }
-      .container .card .card-front:hover .card-value {
-        transform: scale(1); }
     .container .card .card-back {
       background-color: green;
       border-color: red; }

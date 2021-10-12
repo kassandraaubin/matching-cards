@@ -78,10 +78,6 @@ font-size: 4em;
         background-color: green;
         border-color: #fff;
         transform: rotateY(180deg);
-
-        &:hover .card-value {
-            transform: scale(1);
-        }
       }
   
       .card-back {
