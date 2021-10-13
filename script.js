@@ -20,10 +20,11 @@ class matchingCard {
         this.timer.innerText = this.timeRemaining;
         const scoresTab = document.getElementById('scores-tab');
 
+        // Je récupère au dessus l'élément de mon DOM qui m'intéresse pour afficher les résultats stockées dans mon local storage en parsant le tableau de données ci-dessous.
         for( let i = 0; i < localStorage.length ; i++ ){
             const key = localStorage.key(i);
             const valeur = localStorage.getItem(key);
-
+            // J'affiche le résultat sous forme de liste.
             scoresTab.innerHTML += `<ul><li>${key}: ${valeur}</li></ul>`;
 
         }
@@ -40,7 +41,6 @@ class matchingCard {
         if(this.canFlipCard(card)){
             card.classList.add('visible');
             if(this.cardToCheck){
-                // check for match
                 this.checkForCardMatch(card);
             } else {
                 this.cardToCheck = card;
@@ -58,6 +58,7 @@ class matchingCard {
         this.cardToCheck = null;
     }
     
+    // Je vérifie si j'ai un match, si c'est le cas je pousse mes deux cartes dans mon tableau "matchedCards". Une fois que la longueur de ce tableau est strictement égale à la longueur de mon tableau de carte, j'ai gagné !
     cardsAreMatching(card1, card2){
         this.matchedCards.push(card1);
         this.matchedCards.push(card2);
@@ -69,6 +70,8 @@ class matchingCard {
         }
     }
 
+    // Si mes cartes ne matchent pas, je retir la classe visible pour qu'elle se retourne à nouveau. Busy me sert à empêcher de cliquer sur d'autres cartes le temps que le match s'invalide.
+
     cardsDidNotMatched(card1, card2){
         this.busy = true;
         setTimeout(() => {
@@ -78,9 +81,11 @@ class matchingCard {
         }, 1000);
     }
 
+    // Je me sers de ma source d'image pour récupérer la valeur de chaque carte et voir dans une autre fonction si elles matchent.
     getCardType(card){
         return card.getElementsByClassName('card-value')[0].src;
     }
+
 
     startCountingDown(){
         return setInterval(() => {
@@ -113,7 +118,7 @@ class matchingCard {
     
 
     shuffleCards(){
-        // Fisher and Yates Shuffle
+        // Fisher et Yates Shuffle : https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
         for(let i = this.cardsArray.length - 1 ; i > 0 ; i--){
             let randomI = Math.floor(Math.random() * (i+1));
             this.cardsArray[randomI].style.order = i;

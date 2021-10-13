@@ -83,7 +83,7 @@ Bien joué !
 
 #### Test 1 :
 
-La fonction est bonne. Pourquoi as-tu cherché à obtenir le type de int ? Tester son code est une bonne pratique mais pour le coup, effectuer un console.log de ta fonction sans y insérer d'arguments n'est pas nécessaire.
+La fonction est bonne cependant effectuer un console.log de ta fonction sans y insérer d'arguments n'est pas utile. Actuellement si tu testes ta fonction à vide, elle te retournera "not a number" puisqu'elle attent un entier à pouvoir doubler.
 
 #### Test 2 :
 
